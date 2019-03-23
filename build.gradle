@@ -22,7 +22,6 @@ dependencies {
 	implementation "com.sun.xml.bind:jaxb-impl:2.3.0"
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
 
 	compileOnly "org.projectlombok:lombok"
 	annotationProcessor "org.projectlombok:lombok"
