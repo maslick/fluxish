@@ -7,7 +7,7 @@ plugins {
 
 group = 'io.maslick'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -16,6 +16,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation "javax.xml.bind:jaxb-api:2.3.1"
+	implementation "com.sun.xml.bind:jaxb-core:2.3.0.1"
+	implementation "com.sun.xml.bind:jaxb-impl:2.3.2"
 
 	compileOnly "org.projectlombok:lombok"
 	annotationProcessor "org.projectlombok:lombok"
