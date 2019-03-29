@@ -1,15 +1,14 @@
 package io.maslick.fluxish;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement
 public class Datta {
 	private String title;
 }
