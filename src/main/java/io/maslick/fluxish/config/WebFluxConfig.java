@@ -15,7 +15,9 @@ import java.nio.charset.StandardCharsets;
 @RequiredArgsConstructor
 public class WebFluxConfig implements WebFluxConfigurer {
 
-	private static final MimeType[] DEFAULT_XML_MIME_TYPES = new MimeType[]{new MimeType("application", "xml", StandardCharsets.UTF_8)};
+	private static final MimeType[] DEFAULT_XML_MIME_TYPES = new MimeType[]{
+			new MimeType("application", "xml", StandardCharsets.UTF_8)
+	};
 	private final XmlStringReader stringReader;
 
 	@Override
