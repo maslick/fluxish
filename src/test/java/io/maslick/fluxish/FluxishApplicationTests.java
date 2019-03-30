@@ -1,5 +1,6 @@
 package io.maslick.fluxish;
 
+import io.maslick.fluxish.dto.Datus;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,7 @@ public class FluxishApplicationTests {
 		String url = "http://localhost:" + port + "/xml/get";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(singletonList(APPLICATION_XML));
-		ResponseEntity<Datta> resp = restTemplate.exchange(url, GET, new HttpEntity<>(headers), Datta.class);
+		ResponseEntity<Datus> resp = restTemplate.exchange(url, GET, new HttpEntity<>(headers), Datus.class);
 
 		Assert.assertEquals(APPLICATION_XML, resp.getHeaders().getContentType());
 		Assert.assertEquals(OK, resp.getStatusCode());
@@ -39,16 +40,16 @@ public class FluxishApplicationTests {
 
 	@Test
 	public void testPost() {
-		Datta data = new Datta("test");
+		Datus data = new Datus("test");
 		String url = "http://localhost:" + port + "/xml/post";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(APPLICATION_XML);
 		headers.setAccept(singletonList(APPLICATION_XML));
-		HttpEntity<Datta> entity = new HttpEntity<>(data, headers);
-		ResponseEntity<Datta> resp = restTemplate.exchange(url, POST, entity, Datta.class);
+		HttpEntity<Datus> entity = new HttpEntity<>(data, headers);
+		ResponseEntity<Datus> resp = restTemplate.exchange(url, POST, entity, Datus.class);
 
 		Assert.assertEquals(APPLICATION_XML, resp.getHeaders().getContentType());
 		Assert.assertEquals(OK, resp.getStatusCode());
-		Assert.assertEquals("test!", resp.getBody().getTitle());
+		Assert.assertEquals("test", resp.getBody().getTitle());
 	}
 }

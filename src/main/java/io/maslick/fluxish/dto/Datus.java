@@ -1,4 +1,4 @@
-package io.maslick.fluxish;
+package io.maslick.fluxish.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Datta {
+public class Datus {
 	private String title;
 }
