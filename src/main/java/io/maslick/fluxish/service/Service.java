@@ -17,25 +17,25 @@ public class Service implements IService {
 
 	@Override
 	public Mono<Datus> retrieve(Integer id) {
-		log.info("Retrieving feed by id: {}", id);
+		log.debug("Retrieving feed by id: {}", id);
 		return repo.findById(id);
 	}
 
 	@Override
 	public Flux<Datus> retrieve(String feed) {
-		log.info("Retrieving feeds by name: {}", feed);
+		log.debug("Retrieving feeds by name: {}", feed);
 		return repo.findAllByFeed(feed);
 	}
 
 	@Override
 	public Flux<Datus> retrieveAll() {
-		log.info("Retrieving all feeds");
+		log.debug("Retrieving all feeds");
 		return repo.findAll();
 	}
 
 	@Override
 	public Mono<Datus> save(String feed) {
-		log.info("Saving feed: {}", feed);
+		log.debug("Saving feed: {}", feed);
 		return repo.save(new Datus(null, feed, System.currentTimeMillis()));
 	}
 }

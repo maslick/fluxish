@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.r2dbc.function.DatabaseClient;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -19,6 +20,7 @@ public class FluxishApplication {
 	}
 
 	private final FeedRepo repo;
+	private final DatabaseClient client;
 
 	@PostConstruct
 	public void post() {
@@ -29,5 +31,11 @@ public class FluxishApplication {
 		repo.findAllByFeed("hello").subscribe(d -> {
 			log.info("findAll - " + d);
 		});
+
+		client.select()
+				.from(Datus.class)
+				.fetch()
+				.all().subscribe(d -> log.info(d.toString()));
+		System.out.println("#################");
 	}
 }
